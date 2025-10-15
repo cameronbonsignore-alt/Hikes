@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Hiking</title>
   <meta name="description" content="Practical guidance on preventing tick-borne illness: personal protection, clothing, landscape tips, and resources.">
-  <meta name="author" content="Created with ChatGPT">
+  <meta name="author" content="Created by Logan Porter, Anya Rogers, Cam Bonsignore, Hannah Albero and Kristi Isola">
   <style>
     :root{--accent:#166534;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
     *{box-sizing:border-box}
@@ -18,7 +18,13 @@
     nav a{color:rgba(255,255,255,.95);margin-right:1rem;text-decoration:none;font-weight:600}
 
     main{padding:2rem 1rem}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:1.25rem}
+
+    /* UPDATED: Equal width 2-column grid */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr; /* both columns equal */
+      gap:1.25rem;
+    }
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
     .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.06)}
@@ -45,7 +51,7 @@
 <body>
   <header>
     <div class="container">
-    <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/utahvalley/timpanogoswildflowershrzFworked0_30a2fbec-5056-a36a-0b341a89e6e9b7d9.jpg" alt="Italian Trulli" style="width:500px;height:300px;" >
+      <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,q_75,w_1200/v1/crm/utahvalley/timpanogoswildflowershrzFworked0_30a2fbec-5056-a36a-0b341a89e6e9b7d9.jpg" alt="Italian Trulli" style="width:500px;height:300px;" >
       <h1>Wisdom in the Wasatch</h1>
       <p class="lead">Practical, evidence‑based steps to guide you on your hiking journies.</p>
       <nav aria-label="Primary navigation">
@@ -68,7 +74,6 @@
           <li>Endurance training</li>
           <li>Stabilizing footwear</li>
           <li>Using hiking poles/sticks</li>
-          
         </ul>
 
         <h3>Factors that increase the risk of injury</h3>
@@ -89,7 +94,6 @@
           <li>Powerade Zero</li>
           <li>DIY Mix: 250 mL of juice + 750mL water + a pinch of salt</li>
         </ul>
-       
       </aside>
 
       <section class="card" id="rabies" aria-labelledby="rabies-heading">
@@ -98,8 +102,7 @@
         <ul>
           <li>Greater than 90% of reported rabid animals in the U.S. are wildlife. There are no current secondary intervention methods for the prevention of rabies. Therefore, education is the key to prevention. </li>
           <p class="muted">Transmission</p>
-          <li>Spread through saliva and/or a bite from a rabid animal.
-          </li>
+          <li>Spread through saliva and/or a bite from a rabid animal.</li>
           <li><strong>AVOID handling all dead and alive wild animals:</strong> If a dead animal, suspected of having rabies, is found on a trail, note location and report to local wilderness authorities for management and disposal.</li>
           <p class="muted">When to seek care</p>
           <li>Exposure requires a hospital visit ASAP to receive post-exposure prophylaxis (PEP)!</li>
@@ -114,9 +117,8 @@
           <li>Use of a insect repellent that includes DEET or Picaridin before embarking on the hike can greatly reduce the risk of getting bitten by a tick. Avoiding walking through thick vegetation can also decrease your chances of encountering ticks.  </li>
           <li>It is not uncommon to find a tick embedded in the skin after spending an afternoon in the mountains. Common places to find ticks on the body include warm moist areas such as the scalp, armpits, groin, behind the knees and along the waistline.  </li>
           <li>The most effective method to remove an embedded tick is to use tweezers to gently squeeze the head of the tick and pull it up. Maintain consistent pressure until the tick releases.   </li>
-          <img src="https://easthillvet.com/wp-content/uploads/2021/02/How-to-Remove-a-Tick_post_img.jpg" alt="Italian Trulli" style="width:500px;height:300px;" >
-          <img src="https://media.istockphoto.com/id/1456130560/vector/tips-for-tick-safety-vector-infographic-design.jpg?s=612x612&w=0&k=20&c=B7tmTzA7LZ6GO_MfCXZy5Qp25bVLFT025_zMYqQa_Lw=" alt="Italian Trulli" style="width:500px;height:300px;" >
-          
+          <img src="https://easthillvet.com/wp-content/uploads/2021/02/How-to-Remove-a-Tick_post_img.jpg" alt="Tick removal" style="width:500px;height:300px;" >
+          <img src="https://media.istockphoto.com/id/1456130560/vector/tips-for-tick-safety-vector-infographic-design.jpg?s=612x612&w=0&k=20&c=B7tmTzA7LZ6GO_MfCXZy5Qp25bVLFT025_zMYqQa_Lw=" alt="Tick safety infographic" style="width:500px;height:300px;" >
         </ul>
       </section>
 
@@ -128,20 +130,13 @@
           <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=tick+borne+disease+co-infection" target="_blank" rel="noopener">PubMed search: tick-borne disease co-infection</a></li>
           <li><a href="https://epi.utah.gov/" target="_blank" rel="noopener">Utah Department of Health — Infectious Disease</a></li>
         </ul>
-
-        <p style="margin-top:1rem">Want this page edited or hosted? I can:</p>
-        <ol>
-          <li>Customize content or styling (colors, logo, region-specific guidance).</li>
-          <li>Provide a one-click hosting guide for GitHub Pages or Netlify.</li>
-          <li>Convert this into a printable single‑page PDF or email template.</li>
-        </ol>
       </section>
-
     </div>
   </main>
 
   <footer>
-    <div class="container">Created with ChatGPT — edit as needed. &#x2022; Last updated: Oct 14, 2025</div>
+    <div class="container">Created by Logan Porter, Anya Rogers, Cam Bonsignore, Hannah Albero and Kristi Isola &#x2022; Last updated: Oct 14, 2025</div>
   </footer>
 </body>
 </html>
+
