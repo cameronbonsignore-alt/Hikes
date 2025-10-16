@@ -1,8 +1,6 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-	
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Hiking</title>
@@ -14,26 +12,28 @@
     :root{--accent:#166534;--muted:#6b7280;--bg:#f8fafc;--card:#ffffff}
     *{box-sizing:border-box}
     body{font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  background: var(--bg);
-  color: #0f172a;}
+      line-height: 1.6;
+      margin: 0;
+      background: var(--bg);
+      color: #0f172a;}
     header{background:linear-gradient(90deg,var(--accent),#0f766e);color:#fff;padding:2.25rem 1rem}
     .container{max-width:1000px;width:90%;margin:0 auto;padding:1rem}
-    h1{margin:0;font-size:1.6rem}
+    h1{margin:0; font-size: 2.5rem;}
     p.lead{opacity:0.95;margin-top:.5rem}
     nav{margin-top:1rem}
     nav a{color:rgba(255,255,255,.95);margin-right:1rem;text-decoration:none;font-weight:600}
 
     main{padding:2rem 1rem}
 
-    /* UPDATED: Equal width 2-column grid */
+    /* UPDATED: Responsive 2-column grid */
     .grid{
       display:grid;
-      grid-template-columns:1fr; /* both columns equal */
+      grid-template-columns: 1fr 1fr; /* Default to two columns */
       gap:1.25rem;
     }
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .full-width-card {
+        grid-column: span 2;
+    }
 
     .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.06)}
     h2{margin-top:0}
@@ -52,46 +52,99 @@
     /* accessible focus */
     a:focus{outline:3px solid #c7f0dc;outline-offset:3px}
 
+    /* Outline around the four top categories */
+    nav a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin-right: 0.75rem;
+      border: 2px solid #ffffff;    /* white outline */
+      border-radius: 8px;           /* rounded corners */
+      background-color: rgba(255, 255, 255, 0.1); /* translucent background */
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #ffffff;
+      color: var(--accent);
+    }
+
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- NEW RESPONSIVE STYLES --- */
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .animal-icon-container {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .animal-icon {
+      width: 80px;
+      height: auto;
+    }
+
+    .author-photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 1rem;
+    }
+
+    .author-photo {
+        width: 100px;
+        height: 125px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    /* Media Query for tablets and mobile */
+    @media (max-width:900px){
+      .grid{
+        grid-template-columns:1fr; /* Switch to one column */
+      }
+      .full-width-card {
+        grid-column: span 1; /* Make full-width card also one column */
+      }
+    }
+    
+    /* Media query for smaller mobile phones */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.25rem; /* Reduce h1 font size */
+      }
+      nav {
+        display: flex;
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: flex-start;
+      }
+      nav a {
+        margin-bottom: 0.5rem; /* Add space between stacked links */
+        margin-right: 0;
+      }
+    }
+    
     /* print */
     @media print{header,nav,footer{display:none}body{background:#fff}}
-    
-    
-    h1 {
-  font-size: 40px;
-}
-
-/* Outline around the four top categories */
-nav a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin-right: 0.75rem;
-  border: 2px solid #ffffff;   /* white outline */
-  border-radius: 8px;          /* rounded corners */
-  background-color: rgba(255, 255, 255, 0.1); /* translucent background */
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-nav a:hover {
-  background-color: #ffffff;
-  color: var(--accent);
-}
-
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <img src="https://www.mattpaynephotography.com/images/640/Stormy-Last-Light-of-Autumn-Above-Wilson-Peak-2024.jpg" alt="Italian Trulli" style="width:800px;height:270px;" >
+      <img src="https://www.mattpaynephotography.com/images/640/Stormy-Last-Light-of-Autumn-Above-Wilson-Peak-2024.jpg" class="responsive-img" alt="Mountain landscape at dusk">
       <h1>Wisdom in the Wasatch</h1>
       <p class="lead">Practical, evidence‑based steps to guide you on your hiking journies.</p>
       <nav aria-label="Primary navigation">
@@ -112,14 +165,10 @@ nav a:hover {
         <ul>
           <li><a href="https://www.summitstrength.com.au/blog/a-great-strength-workout-for-hikers ">Strength training</a></li>
           <li><a href="https://www.namasteinnature.com/blog/yoga-routine-for-hikers-backpackers-stretches-for-before-during-and-after-hiking">Stretching/Yoga</a></li>
-          <li><a href="https://www.summitstrength.com.au/blog/endurance-training-for-hikers-without-steep-hills">Endurance training</a>
-</li>
-          <li><a href="https://bettertrail.com/outdoor-gear/best-hiking-shoes">Stabilizing footwear</a>
-</li>
-          <li><a href="https://thebigoutside.com/the-best-trekking-poles-of-2020/ ">Using hiking poles/sticks</a>
-</li>
+          <li><a href="https://www.summitstrength.com.au/blog/endurance-training-for-hikers-without-steep-hills">Endurance training</a></li>
+          <li><a href="https://bettertrail.com/outdoor-gear/best-hiking-shoes">Stabilizing footwear</a></li>
+          <li><a href="https://thebigoutside.com/the-best-trekking-poles-of-2020/ ">Using hiking poles/sticks</a></li>
         </ul>
-
         <h3>Factors that increase the risk of injury</h3>
         <ul>
           <li>No prior hiking experience</li>
@@ -131,7 +180,7 @@ nav a:hover {
 
       <aside class="card" id="hydration" aria-labelledby="hydration-heading">
         <h2 id="hydration-heading">Hydration</h2>
-        <p class="muted">Water alone may not be enough to keep you hydrated on a hot sunny day.  Opt for drinks containing a balance of water, electrolytes, and carbohydrates to keep you optimally hydrated.  Some examples include:.</p>
+        <p class="muted">Water alone may not be enough to keep you hydrated on a hot sunny day. Opt for drinks containing a balance of water, electrolytes, and carbohydrates to keep you optimally hydrated. Some examples include:.</p>
         <ul>
           <li>Hydralyte Sports</li>
           <li>Mizone</li>
@@ -145,49 +194,45 @@ nav a:hover {
         <p class="muted"><u>Prevention and Education</u></p>
         <ul>
           <li>Greater than 90% of reported rabid animals in the U.S. are wildlife.</li>
-                    <li>No current, secondary intervention methods for the prevention of rabies</li>
-                    <ul>
-                    	<li>Education is the key to prevention</li>
-                   </ul>
-                   </li>
-</ul>
-          <p class="muted"><u>Transmission</u></p>
-          <ul>
+          <li>No current, secondary intervention methods for the prevention of rabies
+            <ul>
+              <li>Education is the key to prevention</li>
+            </ul>
+          </li>
+        </ul>
+        <p class="muted"><u>Transmission</u></p>
+        <ul>
           <li>Spread through saliva and/or a bite from a rabid animal.</li>
           <li><strong><u>AVOID</u></strong> handling all dead and alive wild animals.</li>
-          <ul>
           <li> If a dead animal, suspected of having rabies, is found on a trail, note location and report to local wilderness authorities for management and disposal.</li>
           <li> Most common animals with rabies in Utah:</li>
-          
-          <img src="https://static.vecteezy.com/system/resources/previews/067/837/335/non_2x/black-and-white-raccoon-illustration-profile-view-on-white-background-vector.jpg" alt="Italian Trulli" style="width:100px;height:60px;" >
-         
-         <img src="https://static.vecteezy.com/system/resources/previews/005/539/774/non_2x/animal-bat-wings-fly-silhouette-logo-icon-illustration-design-vector.jpg" alt="Italian Trulli" style="width:100px;height:60px;" >
-         
-         <img src="https://www.shutterstock.com/image-vector/fox-sitting-silhouette-vector-isolated-600nw-2518210063.jpg" style="width:100px;height:60px;" >
-          </ul>
-          <p class="muted"><u>When to seek care</u></p>
-          <ul>
+        </ul>
+        <div class="animal-icon-container">
+          <img src="https://static.vecteezy.com/system/resources/previews/067/837/335/non_2x/black-and-white-raccoon-illustration-profile-view-on-white-background-vector.jpg" class="animal-icon" alt="Raccoon icon">
+          <img src="https://static.vecteezy.com/system/resources/previews/005/539/774/non_2x/animal-bat-wings-fly-silhouette-logo-icon-illustration-design-vector.jpg" class="animal-icon" alt="Bat icon">
+          <img src="https://www.shutterstock.com/image-vector/fox-sitting-silhouette-vector-isolated-600nw-2518210063.jpg" class="animal-icon" alt="Fox icon">
+        </div>
+        <p class="muted"><u>When to seek care</u></p>
+        <ul>
           <li>Exposure requires a hospital visit <strong><u>ASAP</u></strong> to receive post-exposure prophylaxis (PEP)</li>
-          <li>Seeking medical attention for PEP is crucial <strong><u>PRIOR</u></strong> to onset of symptoms to prevent mortality</li>
-          <ul>
-          <li> If left <strong><u>untreated, mortality is ~100%</u></strong></li>
-          </ul>
-    
-          <img src="rabies.png" alt="HTML5 Icon" style="width:800px;height:300px;">
-
+          <li>Seeking medical attention for PEP is crucial <strong><u>PRIOR</u></strong> to onset of symptoms to prevent mortality
+            <ul>
+              <li> If left <strong><u>untreated, mortality is ~100%</u></strong></li>
+            </ul>
+          </li>
+          <img src="rabies.png" class="responsive-img" alt="Diagram about rabies transmission" style="margin-top: 1rem;">
         </ul>
       </section>
 
       <section class="card" id="ticks" aria-labelledby="ticks-heading">
         <h2 id="ticks-heading">Ticks</h2>
-        <p class="muted">Ticks are a potential vector for diseases such as Lyme disease and Rocky Mountain Spotted Fever. These illnesses can lead to potentially fatal side effects if not treated early or prevented all together.  </p>
+        <p class="muted">Ticks are a potential vector for diseases such as Lyme disease and Rocky Mountain Spotted Fever. These illnesses can lead to potentially fatal side effects if not treated early or prevented all together. </p>
         <ul>
-          <li>Use of a insect repellent that includes DEET or Picaridin before embarking on the hike can greatly reduce the risk of getting bitten by a tick.  </li>
-          <li>It is not uncommon to find a tick embedded in the skin after spending an afternoon in the mountains. Common places to find ticks on the body include warm moist areas such as the scalp, armpits, groin, behind the knees and along the waistline.  </li>
-          </ul>
-          
-          <p class="muted">Tips for tick safety </p>
-          <ul>
+          <li>Use of a insect repellent that includes DEET or Picaridin before embarking on the hike can greatly reduce the risk of getting bitten by a tick. </li>
+          <li>It is not uncommon to find a tick embedded in the skin after spending an afternoon in the mountains. Common places to find ticks on the body include warm moist areas such as the scalp, armpits, groin, behind the knees and along the waistline. </li>
+        </ul>
+        <p class="muted">Tips for tick safety </p>
+        <ul>
           <li> Wear white clothes </li>
           <li> Avoid areas with high grass </li>
           <li> Wear long sleeve shirts </li>
@@ -195,54 +240,46 @@ nav a:hover {
           <li> Wear high socks </li>
           <li> Examine gear and pets </li>
           <li> Take shower </li>
-          </ul>
-          
-          
-          <img src="https://easthillvet.com/wp-content/uploads/2021/02/How-to-Remove-a-Tick_post_img.jpg" alt="Girl in a jacket" width="850" height="500">
-         
-
-          
         </ul>
+        <img src="https://easthillvet.com/wp-content/uploads/2021/02/How-to-Remove-a-Tick_post_img.jpg" class="responsive-img" alt="How to remove a tick with tweezers">
       </section>
 
-      <section class="card" id="resources" aria-labelledby="resources-heading" style="grid-column: span 2:">
+      <section class="card full-width-card" id="resources" aria-labelledby="resources-heading">
         <h2 id="resources-heading">Further Reading & Resources</h2>
         <p>Curated starting places for research and public health guidance.</p>
         <ul>
-        <li> Hiking Injuries </li>
-        <ul>
-         <li> <a href="https://journals.sagepub.com/doi/10.1016/j.wem.2021.04.004?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">Wilderness Medical Society</a></li>
-          <li> <a href="https://pubmed.ncbi.nlm.nih.gov/35067448/">Wilderness Medical Society</a></li>
-        </ul>
-		<li> Tick Illnesses </li>
-        <ul>
-        <li> <a href="https://academic.oup.com/jme/article-abstract/52/6/1361/868548?redirectedFrom=fulltext">Journal of Medical Entomology</a></li>
-                <li> <a href="https://academic.oup.com/jme/article-abstract/52/6/1361/868548?redirectedFrom=fulltext">Journal of the American Academy of Dermatology</a></li>
-
-        </ul>
-        <li> Hydration </li>
-        <ul>
-               <li> <a href="https://pubmed.ncbi.nlm.nih.gov/34716905/">Sports Medicine</a></li>
-
-        </ul>
-        
+          <li> Hiking Injuries
+            <ul>
+              <li> <a href="https://journals.sagepub.com/doi/10.1016/j.wem.2021.04.004?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">Wilderness Medical Society</a></li>
+              <li> <a href="https://pubmed.ncbi.nlm.nih.gov/35067448/">Wilderness Medical Society</a></li>
+            </ul>
+          </li>
+          <li> Tick Illnesses
+            <ul>
+              <li> <a href="https://academic.oup.com/jme/article-abstract/52/6/1361/868548?redirectedFrom=fulltext">Journal of Medical Entomology</a></li>
+              <li> <a href="https://academic.oup.com/jme/article-abstract/52/6/1361/868548?redirectedFrom=fulltext">Journal of the American Academy of Dermatology</a></li>
+            </ul>
+          </li>
+          <li> Hydration
+            <ul>
+              <li> <a href="https://pubmed.ncbi.nlm.nih.gov/34716905/">Sports Medicine</a></li>
+            </ul>
+          </li>
         </ul>
       </section>
     </div>
   </main>
 
   <footer>
-    <div class="container">Created by Logan Porter, Anya Rogers, Cam Bonsignore, Hannah Albero and Kristi Isola &#x2022; Last updated: Oct 14, 2025</div>
-    
-    <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Porter,%20Logan.jpg?csf=1&web=1&e=U11Ud6" alt="Italian Trulli" style="width:120px;height:150px;" >
-    <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Rogers,%20Anya.jpg?csf=1&web=1&e=JdOMCI" alt="Italian Trulli" style="width:120px;height:150px;" >
-    <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Bonsignore,%20Cam.jpg?csf=1&web=1&e=NcvR3c" alt="Italian Trulli" style="width:120px;height:150px;" >
-    <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Albero,%20Hannah.jpg?csf=1&web=1&e=PBFewG" alt="Italian Trulli" style="width:120px;height:150px;" >
-    <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Isola,%20Kristi.jpg?csf=1&web=1&e=pxb1kP" alt="Italian Trulli" style="width:120px;height:150px;" >
-    
-    
-    
+    <div class="container">Created by Logan Porter, Anya Rogers, Cam Bonsignore, Hannah Albero and Kristi Isola &#x2022; Last updated: Oct 14, 2025
+        <div class="author-photos">
+            <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Porter,%20Logan.jpg?csf=1&web=1&e=U11Ud6" class="author-photo" alt="Headshot of Logan Porter">
+            <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Rogers,%20Anya.jpg?csf=1&web=1&e=JdOMCI" class="author-photo" alt="Headshot of Anya Rogers">
+            <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Bonsignore,%20Cam.jpg?csf=1&web=1&e=NcvR3c" class="author-photo" alt="Headshot of Cam Bonsignore">
+            <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Albero,%20Hannah.jpg?csf=1&web=1&e=PBFewG" class="author-photo" alt="Headshot of Hannah Albero">
+            <img src="https://rmuohp.sharepoint.com/:i:/r/sites/PAStudentFiles/Shared%20Documents/00%20-%20Student%20Records/C2027%20STUDENTS/Photos/White%20Coat%20Headshots/Isola,%20Kristi.jpg?csf=1&web=1&e=pxb1kP" class="author-photo" alt="Headshot of Kristi Isola">
+        </div>
+    </div>
   </footer>
-  
 </body>
 </html>
